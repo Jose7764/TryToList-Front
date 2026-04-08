@@ -28,16 +28,15 @@ function fecharModal() {
   modal.classList.remove('flex');
 }
 
-
 let tarefas = [
-  {
-    id: 1,
-    titulo: "Revisar documentação da API",
-    conteudo: "Atualizar endpoints...",
-    prioridade: "Média",
-    data: "2026-03-25",
-    concluida: false
-  }
+  // {
+  //   id: 1,
+  //   titulo: "Revisar documentação da API",
+  //   conteudo: "Atualizar endpoints...",
+  //   prioridade: "Média",
+  //   data: "2026-03-25",
+  //   concluida: false
+  // }
 ];
 
 function render() {
