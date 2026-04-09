@@ -41,24 +41,24 @@
         Entre na sua conta para continuar
       </p>
 
-      <form class="space-y-4">
+      <form class="space-y-4" id="login">
 
         <div>
           <label class="text-sm text-gray-600">E-mail</label>
-          <input type="email" placeholder="seu@email.com"
+          <input type="email" placeholder="seu@email.com" name="email"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
      
         <div>
           <label class="text-sm text-gray-600">Senha</label>
-          <input type="password" placeholder="••••••••"
+          <input type="password" placeholder="••••••••" name="password"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
        
         <button
-          class="w-full bg-[#25937D] text-white py-3 rounded-md mt-4 hover:opacity-90 transition">
+          class="w-full bg-[#25937D] text-white py-3 rounded-md mt-4 hover:opacity-90 transition" type="submit">
           Entrar →
         </button>
 
@@ -70,8 +70,12 @@
       </p>
 
     </div>
-
   </div>
+
+  <script type="module">
+    import { login } from './front/auth.js';
+    login();
+  </script>
 
 </body>
 </html>
