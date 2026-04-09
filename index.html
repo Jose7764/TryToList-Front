@@ -17,7 +17,7 @@
     </div>
 
    
-        <a href="/login.html" class="flex items-center gap-2 text-gray-500 text-sm cursor-pointer">
+        <a href="/login.html" class="flex items-center gap-2 text-gray-500 text-sm cursor-pointer" id="logout">
             <img src="/images/sair.png" class="w-4 h-4">
             <span>Sair</span>
         </a>
@@ -48,8 +48,8 @@
             Finalizadas
           </span>
 
-          <span class="bg-gray-200 text-xs px-2 py-0.5 rounded-full">
-            2
+          <span id="countFinalizadas" class="bg-gray-200 text-xs px-2 py-0.5 rounded-full">
+            0
           </span>
         </div>
 
@@ -69,11 +69,12 @@
 
           <input
             type="text"
+            oninput="filtrar(this.value)"
             placeholder="Buscar tarefas..."
             class="flex-1 p-2.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]"
           >
 
-            <button onclick="abrirModal()" class="bg-[#25937D] text-white px-4 py-2 rounded-lg text-sm">
+            <button id="openModal" class="bg-[#25937D] text-white px-4 py-2 rounded-lg text-sm">
             + Nova tarefa
             </button>
 
@@ -82,21 +83,21 @@
         
         <div class="flex gap-2 mb-5 items-center">
 
-          <img src="img/filter.png" class="w-4 h-4">
+          <img src="images/filter.png" class="w-4 h-4">
 
-          <button class="bg-[#25937D] text-white px-3 py-1 rounded-full text-xs">
+          <button id="filter-ALL" onclick="filtrarPrioridade('ALL')" class="bg-[#25937D] text-white px-3 py-1 rounded-full text-xs transition-colors">
             Todas
           </button>
-
-          <button class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600">
+          
+          <button id="filter-HIGH" onclick="filtrarPrioridade('HIGH')" class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600 transition-colors">
             Alta
           </button>
-
-          <button class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600">
+          
+          <button id="filter-MEDIUM" onclick="filtrarPrioridade('MEDIUM')" class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600 transition-colors">
             Média
           </button>
-
-          <button class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600">
+          
+          <button id="filter-LOW" onclick="filtrarPrioridade('LOW')" class="bg-gray-200 px-3 py-1 rounded-full text-xs text-gray-600 transition-colors">
             Baixa
           </button>
 
@@ -148,15 +149,10 @@
       <div class="flex-1">
         <label class="text-sm text-gray-600">Prioridade</label>
         <select id="prioridadeInput" class="w-full mt-1 p-2 border rounded-md">
-          <option>Alta</option>
-          <option>Média</option>
-          <option>Baixa</option>
+          <option value="HIGH">Alta</option>
+          <option value="MEDIUM">Média</option>
+          <option value="LOW">Baixa</option>
         </select>
-      </div>
-
-      <div class="flex-1">
-        <label class="text-sm text-gray-600">Data</label>
-        <input id="dataInput" type="date" class="w-full mt-1 p-2 border rounded-md">
       </div>
 
     </div>
@@ -199,10 +195,13 @@
   </div>
 
 </div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+<script type="module">
+  import { logout } from "./front/auth.js";
+  import { carregarTarefas, fecharModal } from './app.js';
 
-  render();
+  document.addEventListener("DOMContentLoaded", () => {
+
+  carregarTarefas();
 
   const modal = document.getElementById('modal');
 
@@ -212,8 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  logout();
 });
+
+logout();
 </script>
-<script src="app.js"></script>
 </body>
 </html>

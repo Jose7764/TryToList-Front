@@ -10,9 +10,7 @@
 
 <div class="w-1/2 bg-gray-100 flex items-center justify-center">
 
-    <div class="w-96">
-
-    
+    <div class="w-96">  
       <h2 class="text-3xl font-semibold mb-2 text-gray-800">
         Criar Conta
       </h2>
@@ -21,69 +19,63 @@
         Preencha os dados para começar
       </p>
 
-      <form class="space-y-4">
+      <form class="space-y-4" id="register">
 
         <div>
           <label class="text-sm text-gray-600">Name</label>
-          <input type="name" placeholder="Example"
+          <input type="name" placeholder="Example" name="name"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
         <div>
           <label class="text-sm text-gray-600">E-mail</label>
-          <input type="email" placeholder="seu@email.com"
+          <input type="email" placeholder="seu@email.com" name="email"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
-     
         <div>
           <label class="text-sm text-gray-600">Senha</label>
-          <input type="password" placeholder="••••••••"
+          <input type="password" placeholder="••••••••" name="password"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
         <div>
           <label class="text-sm text-gray-600">Confirmar Senha</label>
-          <input type="password" placeholder="••••••••"
+          <input type="password" placeholder="••••••••" name="confirmPassword"
             class="w-full mt-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#25937D]">
         </div>
 
-       
         <button
-          class="w-full bg-[#25937D] text-white py-3 rounded-md mt-4 hover:opacity-90 transition">
+          class="w-full bg-[#25937D] text-white py-3 rounded-md mt-4 hover:opacity-90 transition" type="submit">
           Entrar →
         </button>
 
       </form>
 
-      
       <p class="text-sm text-gray-500 mt-6 text-center">
        Já tem conta? <span class="text-[#25937D] cursor-pointer"><a href="/login.html">Login</a></span>
       </p>
 
     </div>
-
   </div>
   <div class="w-1/2 bg-[#25937D] flex flex-col justify-center px-20 text-white">
   
     <div class="w-16 h-16 ">
       <img src="images/checkBox.png" class="w-15 h-15 mb-10" alt="check">
     </div>
-
    
     <h1 class="text-5xl font-bold mb-6 leading-tight">
       Organize suas tarefas com clareza.
     </h1>
-
     
     <p class="text-lg text-white/80 max-w-md">
       Um espaço simples e focado para manter tudo sob controle — prioridades, prazos e ideias.
     </p>
 
   </div>
-
- 
-  
-
+  <script type="module">
+    import { register } from './front/auth.js';
+    register();
+  </script>
 </body>
 </html>
